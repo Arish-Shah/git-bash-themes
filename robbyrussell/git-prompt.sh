@@ -1,4 +1,5 @@
 reset="\001\033[0m\002"
+bold="\001\033[1m\002"
 red="\001\033[31m\002"
 green="\001\033[32m\002"
 yellow="\001\033[33m\002"
@@ -24,9 +25,10 @@ then
 	. ~/.config/git/git-prompt.sh
 else
 	PS1='\001\033]0;Git-Bash\007\002'  # set window title
-	PS1="$PS1""\$(arrow_color) "   # change arrow color if command fails
-	PS1="$PS1""$cyan"              # change to cyan
-	PS1="$PS1"' \W'                # <space> current working directory
+	PS1="$PS1""$bold"                  # make the prompt bold
+	PS1="$PS1""\$(arrow_color) "       # change arrow color if command fails
+	PS1="$PS1""$cyan"                  # change to cyan
+	PS1="$PS1"' \W'                    # <space> current working directory
 	if test -z "$WINELOADERNOEXEC"
 	then
 		GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
@@ -45,7 +47,7 @@ else
 	PS1="$PS1"'\001\033[0m\002 '         # reset color
 fi
 
-MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
+MSYS2_PS1="$PS1"                       # for detection by MSYS2 SDK's bash.basrc
 
 # Evaluate all user-specific Bash completion scripts (if any)
 if test -z "$WINELOADERNOEXEC"
