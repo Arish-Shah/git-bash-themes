@@ -2,7 +2,7 @@ if test -f ~/.config/git/git-prompt.sh
 then
 	. ~/.config/git/git-prompt.sh
 else
-	PS1='\[\033]0;Git-Bash\007\]' # set window title
+	PS1='\[\033]0;Git Bash\007\]' # set window title
 	PS1="$PS1"'\u@\h '             # user@host<space>
 	PS1="$PS1"'\W'                 # current working directory
 	if test -z "$WINELOADERNOEXEC"
@@ -15,12 +15,11 @@ else
 		then
 			. "$COMPLETION_PATH/git-completion.bash"
 			. "$COMPLETION_PATH/git-prompt.sh"
-			PS1="$PS1"'\[\033[36m\]'  # change color to cyan
 			PS1="$PS1"'`__git_ps1`'   # bash function
 		fi
 	fi
 	PS1="$PS1"'\[\033[0m\]'        # change color
-	PS1="$PS1"' % '                # prompt: always $
+	PS1="$PS1"' % '                # prompt: always %
 fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
