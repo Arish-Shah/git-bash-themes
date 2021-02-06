@@ -8,9 +8,11 @@ white="\001\033[37m\002"
 
 #background
 blue_bg="\001\033[44m\002"
+green_bg="\001\033[42m\002"
 
 intro="Welcome to fish, the friendly interactive shell"
 fish="⋊>"
+insert_mode="$white$bold$green_bg[I]$reset "
 
 function fish_prompt {
 	if [ $? -eq 0 ]; then
@@ -26,6 +28,7 @@ then
 else
 	PS1='\001\033]0;Git Bash\007\002'         # set window title
 	echo "$intro"                             # fish intro text
+	PS1="$PS1""$insert_mode"                  # Insert Mode [I]
 	PS1="$PS1""\$(fish_prompt)"               # prompt
 	PS1="$PS1"" "
 	PS1="$PS1$yellow""\w"                     # current directory
