@@ -5,7 +5,9 @@ else
 	PS1='\[\033]0;Git Bash\007\]'  # set window title
 	PS1="$PS1"'\001\033[1m\002'    # bold
 	PS1="$PS1"'\001\033[32m\002'   # change to green
-	PS1="$PS1"'\u@\h '             # user@host<space>
+	PS1="$PS1"'\u@\h'              # user@host<space>
+	PS1="$PS1"'\001\033[37m\002'   # change color
+	PS1="$PS1"':'                  # :
 	PS1="$PS1"'\001\033[34m\002'   # change to blue
 	PS1="$PS1"'\w'                 # current working directory
 	if test -z "$WINELOADERNOEXEC"
